@@ -33,8 +33,7 @@ public class App {
       Map<String, Object> model = new HashMap <String, Object>();
       Word word = Word.find(Integer.parseInt(request.queryParams("wordId")));
       String defineWord = request.queryParams("defineWord");
-      String userName = request.queryParams("userName");
-      Definition newDefinition = new Definition(defineWord, userName);
+      Definition newDefinition = new Definition(defineWord);
       word.addDefinition(newDefinition);
       model.put("word", word);
       model.put ("template", "templates/word-definition.vtl");

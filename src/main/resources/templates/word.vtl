@@ -1,10 +1,12 @@
-<h1>$word.getSetWord()</h1>
+<div class ="jumbotron">
+  <h1>$word.getSetWord()</h1>
 
-<ul>
-  #foreach($definition in $word.getDefinitions())
-   <li>$definition.getDefineWord()</li>
-  #end
-</ul>
+  <ul>
+    #foreach($definition in $word.getDefinitions())
+     <li>$definition.getDefineWord()</li>
+    #end
+  </ul>
 
-<a href="/$word.getId()/definitions/new">Add a new definition</a>
-<a href="/">All words</a>
+  <a href="/$word.getId()/definitions/new">Add a new definition</a>
+  <a href="/">All words</a>
+</div>

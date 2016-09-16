@@ -1,4 +1,6 @@
-<h1>$definition.getDefineWord()</h1>
+<div class ="jumbotron">
+  <h1>$definition.getDefineWord()</h1>
 
-<a href="/definitions/new">Add another definition</a>
-<a href="/definitions">All definitions</a>
+  <a href="/definitions/new">Add another definition</a>
+  <a href="/definitions">All definitions</a>
+</div>

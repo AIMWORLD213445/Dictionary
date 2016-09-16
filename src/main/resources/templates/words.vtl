@@ -1,7 +1,9 @@
-<h1>All Words</h1>
-<ul>
-  #foreach ($word in $words)
-    <li><a href="/$word.getId()">$word.getSetWord()</a></li>
-  #end
-</ul>
-<a href="/new">Add New Word</a>
+<div class ="jumbotron">
+  <h1>All Words</h1>
+  <ul>
+    #foreach ($word in $words)
+      <li><a href="/$word.getId()">$word.getSetWord()</a></li>
+    #end
+  </ul>
+  <a href="/new">Add New Word</a>
+</div>

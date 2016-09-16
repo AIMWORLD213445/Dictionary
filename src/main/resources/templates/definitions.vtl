@@ -1,0 +1,12 @@
+<h1>Definition list!</h1>
+#if ($definitions)
+  <ul>
+    #foreach ($definition in $definitions)
+      <li><a href= "/definitions/$definition.getId()"> $definition.getDefineWord()</a></li>
+    #end
+  </ul>
+#else
+  <p>No definitionss!</p>
+#end
+
+<a href="/definitions/new">Add A New Definition</a>

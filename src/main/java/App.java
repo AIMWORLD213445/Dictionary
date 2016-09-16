@@ -9,10 +9,10 @@ public class App {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
-
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      model.put ("template", "templates/index.vtl");
+      model.put("words", Word.all());
+      model.put("template", "templates/words.vtl");
       return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
@@ -49,13 +49,13 @@ public class App {
       return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
-    get("/words/new", (request, response) -> {
+    get("/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/word-form.vtl");
       return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
-    post("/words", (request, response) -> {
+    post("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String setWord = request.queryParams("setWord");
       Word newWord = new Word(setWord);
@@ -63,14 +63,7 @@ public class App {
       return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
-    get("/words", (request, response) -> {
-      Map<String, Object> model = new HashMap<String, Object>();
-      model.put("words", Word.all());
-      model.put("template", "templates/words.vtl");
-      return new ModelAndView(model, layout);
-      }, new VelocityTemplateEngine());
-
-    get("/words/:id", (request, response) -> {
+    get("/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Word word = Word.find(Integer.parseInt(request.params(":id")));
       model.put("word", word);
@@ -78,7 +71,7 @@ public class App {
       return new ModelAndView(model, layout);
       }, new VelocityTemplateEngine());
 
-    get("/words/:id/definitions/new", (request, response) -> {
+    get("/:id/definitions/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Word word = Word.find(Integer.parseInt(request.params(":id")));
       model.put("word", word);

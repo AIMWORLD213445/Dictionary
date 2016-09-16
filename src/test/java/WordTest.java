@@ -25,11 +25,24 @@ public class WordTest {
     Word.clear();
     assertEquals(0, Word.all().size());
   }
-
   @Test
   public void getId_instantiatesAnId_1() {
     Word.clear();
     Word freshWord = new Word("bark");
     assertEquals(1, freshWord.getId());
   }
+  @Test
+  public void find_findsWordAssociatedWithEquivalentId_wordTwo() {
+    Word.clear();
+    Word wordOne = new Word("bark");
+    Word wordTwo = new Word("dog");
+    assertEquals(wordTwo, Word.find(wordTwo.getId()));
+  }
+  @Test
+  public void getDefinitions_returnsEmptyArrayListUntilDefinitionsAdded_0() {
+    Word.clear();
+    Word word = new Word("bark");
+    assertEquals(0, word.getDefinitions().size());
+  }
+
 }

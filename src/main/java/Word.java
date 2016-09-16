@@ -18,4 +18,16 @@ public class Word {
   public String getSetWord() {
   return mSetWord;
   }
+
+  public static List<Word> all() {
+    return instances;
+  }
+
+  public static void clear(){
+    instances.clear();
+  }
+
+  public int getId(){
+    return mId;
+  }
 }

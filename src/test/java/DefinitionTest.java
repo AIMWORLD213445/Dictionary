@@ -13,7 +13,7 @@ public class DefinitionTest {
    assertEquals("the sound a dog makes", definition.getDefineWord());
   }
   @Test
-  public void Definition_userNamegetterWorks_String() {
+  public void Definition_userNameGetterWorks_String() {
    Definition definition = new Definition("the sound a dog makes","dictionaryfan333");
    assertEquals("dictionaryfan333", definition.getUserName());
   }

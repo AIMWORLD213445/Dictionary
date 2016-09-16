@@ -1,5 +1,7 @@
-
-<h1>Dictionary Word List!</h1>
-
-<a href="/words">View Word List</a>
-<a href="/words/new">Add a New Word</a>
+<h1>All Words</h1>
+<ul>
+  #foreach ($word in $words)
+    <li><a href="/words/$word.getId()">$word.getSetWord()</a></li>
+  #end
+</ul>
+<a href="/words/new">Add New Word</a>

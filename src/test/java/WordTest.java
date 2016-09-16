@@ -44,5 +44,12 @@ public class WordTest {
     Word word = new Word("bark");
     assertEquals(0, word.getDefinitions().size());
   }
-
+  @Test
+  public void addDefinition_AddNewDefinitionToList_true() {
+    Word.clear();
+    Word word = new Word("bark");
+    Definition definition = new Definition("sound a dog makes","dictionaryfan333");
+    word.addDefinition(definition);
+    assertEquals(true, word.getDefinitions().contains(definition));
+  }
 }

@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.HashMap;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -8,12 +9,19 @@ public class App {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
-    get("/", request, response) ->{
+    get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      model.put ("definitions", request.session().attribute("definitions")):
       model.put ("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
-    } new VelocityTemplateEngine());
+    }, new VelocityTemplateEngine());
 
+    post("/definitions", (request, response) -> {
+      Map<String, Object> model = new HashMap <String, Object>();
+      String defineWord = request.queryParams("defineWord");
+      String userName = request.queryParams("userName");
+      Definition newDefinition = new Definition(defineWord, userName);
+      model.put ("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }
